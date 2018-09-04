@@ -8,6 +8,70 @@
 </head>
 <body>
     <my-component></my-component>
+
+    <h3>index.html</h3>
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en" ng-app="app"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+            &lt;title&gt;Filter&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+
+            &lt;my-component&gt;&lt;/my-component&gt;
+        
+            &lt;script src="https://code.angularjs.org/1.6.5/angular.min.js"&gt;&lt;/script&gt;
+            &lt;script src="module.js"&gt;&lt;/script&gt;
+            &lt;script src="component.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+
+    <h3>module.js</h3>
+    <pre>
+        "use strict";
+
+        var app = angular.module("app", [])
+    </pre>
+
+    <h3>component.js</h3>
+    <pre>
+        "use strict";
+
+        const myComponent = {
+        template: `
+        &lt;input type="text" ng-model="searching"&gt;
+        &lt;li ng-repeat="person in $ctrl.classmates | filter:searching"&gt;{{person}}&lt;/li&gt;
+        
+        `,
+        controller: function() {
+            const vm = this;
+            vm.classmates = [
+                "Ashley",
+                "Jonathan",
+                "Tremell",
+                "Zavier",
+                "Matty",
+                "John",
+                "Ben",
+                "Chelsye",
+                "Katie",
+                "Taz",
+                "Ken",
+                "Sydney",
+                "Adrean",
+                "Jalen"
+            ]
+        }
+        }
+        
+        app.component("myComponent", myComponent)
+    </pre>
+
+
     <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
     <script src="module.js"></script>
     <script src="component.js"></script>
